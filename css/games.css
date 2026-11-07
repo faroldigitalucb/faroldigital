@@ -1,0 +1,573 @@
+/* =====================================================================
+   Games: HUD, Stage, Modal de Pergunta e Estilos dos 10 Jogos
+   ===================================================================== */
+
+/* HUD e Palco do Jogo */
+.hud {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.2rem 0;
+}
+
+.hud-title {
+  font: 800 1.5rem var(--disp);
+  flex: 1 1 auto;
+}
+
+.hud-stats {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+#hud-lives {
+  color: var(--bad);
+  font-size: 1.25rem;
+  letter-spacing: .1em;
+}
+
+#hud-score {
+  font: 800 1.4rem var(--disp);
+}
+
+#hud-clock {
+  font: 800 1.25rem var(--disp);
+  font-variant-numeric: tabular-nums;
+}
+
+.stage {
+  position: relative;
+  min-height: 470px;
+  background: var(--surface);
+  border: 2.5px solid var(--edge);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--edge);
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.end {
+  position: absolute;
+  inset: 0;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .7rem;
+  padding: 1.5rem;
+  z-index: 5;
+}
+
+.end h2 {
+  font-size: 2.2rem;
+}
+
+.end-score {
+  font: 800 4rem/1 var(--disp);
+  margin: .2rem 0;
+}
+
+.end-score small {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Modal de Pergunta */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 40, .62);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.q-card {
+  width: min(640px, 100%);
+  background: var(--surface);
+  border: 2.5px solid var(--edge);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--edge);
+  padding: 1.3rem;
+  max-height: calc(100% - 1rem);
+  overflow: auto;
+}
+
+.q-card.inline {
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0 auto;
+  padding: 1.5rem 1.3rem;
+}
+
+.q-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: .6rem;
+}
+
+.q-tag {
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .15rem .7rem;
+  border-radius: 99px;
+}
+
+.q-time {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.q-bar {
+  height: 10px;
+  border: 2px solid var(--edge);
+  border-radius: 99px;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.q-bar i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--accent);
+}
+
+.q-bar i.low {
+  background: var(--bad);
+}
+
+.q-text {
+  font-size: 1.6rem;
+  margin: 1.1rem 0;
+}
+
+.q-opts {
+  display: grid;
+  gap: .6rem;
+}
+
+.q-opt {
+  display: flex;
+  gap: .8rem;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  padding: .7rem .8rem;
+  border: 2.5px solid var(--edge);
+  border-radius: 12px;
+  background: var(--bg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.q-opt b {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--yellow);
+  color: #16163F;
+  border: 2px solid var(--edge);
+}
+
+.q-opt:not(:disabled):hover {
+  background: var(--line);
+}
+
+.q-opt:disabled {
+  cursor: default;
+}
+
+.q-opt.is-right {
+  background: var(--mint);
+  color: #16163F;
+}
+
+.q-opt.is-wrong {
+  background: var(--coral);
+  color: #16163F;
+}
+
+.q-feedback {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  align-items: flex-start;
+}
+
+.q-feedback p {
+  margin: 0;
+}
+
+.q-feedback .ok strong { color: var(--ok); }
+.q-feedback .bad strong { color: var(--bad); }
+
+/* Jogo 2: Memória dos Pares */
+.mem {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .7rem;
+  padding: 1.2rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.mem-card {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2.5px solid var(--edge);
+  border-radius: 14px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: 800 1.8rem var(--disp);
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--edge);
+}
+
+.mem-card .front {
+  display: none;
+  font-size: clamp(1.8rem, 8vw, 2.8rem);
+}
+
+.mem-card.open {
+  background: var(--yellow);
+  color: #16163F;
+}
+
+.mem-card.open .front { display: block; }
+.mem-card.open .back { display: none; }
+
+.mem-card.done {
+  background: var(--mint);
+  color: #16163F;
+  cursor: default;
+}
+
+/* Jogo 3: Cobrinha Curiosa */
+.snake-cv {
+  display: block;
+  width: min(100%, 440px);
+  height: auto;
+  aspect-ratio: 1;
+  margin: 1.2rem auto;
+  border: 2.5px solid var(--edge);
+  border-radius: 12px;
+  touch-action: none;
+  background: #16163F;
+}
+
+.dpad {
+  display: grid;
+  grid-template-columns: repeat(3, 3.4rem);
+  grid-template-areas: ". up ." "left . right" ". down .";
+  gap: .4rem;
+  justify-content: center;
+  margin: 0 0 1.2rem;
+}
+
+.dpad button {
+  height: 3.4rem;
+  border: 2.5px solid var(--edge);
+  border-radius: 12px;
+  background: var(--lav);
+  color: #16163F;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.dpad [data-d=up] { grid-area: up; }
+.dpad [data-d=left] { grid-area: left; }
+.dpad [data-d=right] { grid-area: right; }
+.dpad [data-d=down] { grid-area: down; }
+
+@media (pointer: fine) {
+  .dpad {
+    display: none;
+  }
+}
+
+/* Jogo 4: Estoura Balões */
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(#8FDCFF, #E9F9FF);
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+.balloon {
+  position: absolute;
+  top: 0;
+  width: 58px;
+  height: 72px;
+  padding: 0;
+  border: 2.5px solid #16163F;
+  border-radius: 50% 50% 50% 50% / 58% 58% 42% 42%;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  will-change: transform;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 2px;
+  height: 26px;
+  background: #16163F;
+}
+
+.balloon.pop {
+  animation: pop .18s forwards;
+  pointer-events: none;
+}
+
+@keyframes pop {
+  to {
+    opacity: 0;
+    scale: 1.5;
+  }
+}
+
+.float {
+  position: absolute;
+  font: 800 1.2rem var(--disp);
+  color: #16163F;
+  pointer-events: none;
+  animation: up .8s forwards;
+}
+
+@keyframes up {
+  to {
+    opacity: 0;
+    translate: 0 -40px;
+  }
+}
+
+/* Jogo 5: Corrida de Obstáculos */
+.run-cv {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  background: #16163F;
+  touch-action: none;
+  cursor: pointer;
+}
+
+/* Jogo 6: Forca */
+.forca {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: center;
+  padding: 1.4rem;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.gallows {
+  width: 100%;
+  color: var(--ink);
+}
+
+.fw-word {
+  font: 800 clamp(1.3rem, 3.6vw, 2.2rem)/1.3 var(--disp);
+  letter-spacing: .1em;
+  overflow-wrap: anywhere;
+}
+
+.fw-keys {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  justify-content: center;
+}
+
+.fw-keys button {
+  width: 2.4rem;
+  height: 2.6rem;
+  border: 2.5px solid var(--edge);
+  border-radius: 10px;
+  background: var(--bg);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.fw-keys button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+@media (max-width: 600px) {
+  .forca {
+    grid-template-columns: 1fr;
+  }
+  .gallows {
+    max-width: 130px;
+    margin: 0 auto;
+  }
+}
+
+/* Jogo 7: Batalha Naval */
+.nv {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .4rem;
+  max-width: 420px;
+  margin: 1.4rem auto;
+  padding: 0 1rem;
+}
+
+.nv-cell {
+  aspect-ratio: 1;
+  border: 2.5px solid var(--edge);
+  border-radius: 10px;
+  background: var(--sky);
+  color: #16163F;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nv-cell.miss { background: #fff; }
+.nv-cell.hit { background: var(--coral); }
+.nv-cell.sunk { background: #16163F; color: #fff; }
+.nv-cell:disabled { cursor: default; }
+
+/* Jogo 8: Caça ao Tesouro (Trilha) */
+.tr {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .4rem;
+  max-width: 520px;
+  margin: 1.2rem auto .8rem;
+  padding: 0 1rem;
+}
+
+.tr-tile {
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2.5px solid var(--edge);
+  border-radius: 10px;
+  background: var(--bg);
+  font-size: 1.4rem;
+  color: #16163F;
+}
+
+.tr-tile.q { background: var(--yellow); }
+.tr-tile.c { background: var(--mint); }
+.tr-tile.t { background: var(--coral); }
+.tr-tile.x { background: var(--lav); }
+.tr-tile.s { background: var(--sky); }
+
+.tr-tile.here {
+  outline: 4px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.tr-ctl {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+}
+
+.tr-msg {
+  font-weight: 700;
+  min-height: 1.5rem;
+  text-align: center;
+  margin: 0 0 .6rem;
+}
+
+/* Jogo 9: Defesa da Torre */
+.td {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.td-lane {
+  position: relative;
+  border-bottom: 2.5px dashed var(--line);
+  cursor: crosshair;
+  overflow: hidden;
+  background: linear-gradient(90deg, var(--bg), var(--surface));
+}
+
+.td-lane:last-child {
+  border-bottom: 0;
+}
+
+.td-tower {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  pointer-events: none;
+}
+
+.td-enemy {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1.3rem;
+  font-size: 2rem;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.td-boom {
+  position: absolute;
+  top: 50%;
+  margin-top: -1.3rem;
+  font-size: 2rem;
+  pointer-events: none;
+  animation: up .5s forwards;
+}
+
+/* Jogo 10: Roleta da Sorte */
+.wheel-wrap {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+}
+
+.wheel-wrap svg {
+  width: min(82%, 340px);
+  height: auto;
+}
+
+.wheel-wrap .tr-msg {
+  margin: 0;
+}

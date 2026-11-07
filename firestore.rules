@@ -1,0 +1,19 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Regras atuais do projeto Nível:
+    // Coleções utilizadas pela aplicação:
+    // - meta/app                         -> Estado de configuração inicial (setup: true)
+    // - users/{username}                 -> Contas de alunos, professores e professor master (PBKDF2 hash + salt)
+    // - banks/{bankId}                   -> Questionários e perguntas criados pelos professores
+    // - stats/{username}                 -> Estatísticas acumuladas, semanais, por jogo e por questionário
+    // - scores/{username}                -> Recordes por jogo
+    // - rooms/{code}                     -> Salas ao vivo abertas pelos professores
+    // - rooms/{code}/players/{username}  -> Respostas e pontuação em tempo real dos alunos na sala
+    // - rooms/{code}/results/all         -> Resultados consolidados e ranking da sala
+    // - history/{id}                     -> Histórico de salas ao vivo encerradas
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

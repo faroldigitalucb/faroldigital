@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nível: jogos com perguntas</title>
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos Modulares -->
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/views.css">
+  <link rel="stylesheet" href="./css/games.css">
+
+  <!-- SDKs do Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+  <header class="top">
+    <div class="wrap top-in">
+      <button class="brand" data-go="home"><span class="mark" aria-hidden="true"></span>Nível</button>
+      <nav id="nav" aria-label="Principal" hidden></nav>
+      <div class="who" id="who" hidden>
+        <button class="who-btn" id="who-btn" data-go="profile" title="Meu perfil"><span id="who-av"></span><span id="who-name"></span></button><span class="badge" id="who-role"></span>
+        <button class="btn btn-sm" id="logout">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="view-boot" class="boot">Conectando…</div>
+
+    <!-- LOGIN -->
+    <div id="view-login" hidden>
+      <section class="login">
+        <div>
+          <h1>Aprender no meio do jogo.</h1>
+          <p class="lead">Entre com o usuário e a senha que o seu professor criou para você.</p>
+        </div>
+        <div class="panel login-card" id="login-card"></div>
+      </section>
+    </div>
+
+    <!-- HOME -->
+    <div id="view-home" hidden>
+      <section class="hero">
+        <div>
+          <h1>Aprender no meio do jogo.</h1>
+          <p class="lead" id="hello"></p>
+          <div class="pick">
+            <label for="bank-select">Questionário</label>
+            <select id="bank-select"></select>
+          </div>
+          <div class="bank-info" id="bank-info"></div>
+        </div>
+        <div class="sample" aria-hidden="true">
+          <span class="sample-tag">Pergunta surpresa</span>
+          <p>Juros são…</p>
+          <div class="s-opt">Um desconto dado pela loja</div>
+          <div class="s-opt hit">O valor cobrado pelo uso do dinheiro ao longo do tempo</div>
+          <div class="s-opt">Uma taxa para abrir conta</div>
+        </div>
+      </section>
+      <section>
+        <h2 class="sec">Jogos disponíveis</h2>
+        <div class="live" id="live"></div>
+      </section>
+      <section class="cta" id="cta"></section>
+    </div>
+
+    <!-- JOGO -->
+    <div id="view-game" hidden>
+      <div class="hud">
+        <button class="btn btn-sm" id="hud-exit" data-go="home">Sair do jogo</button>
+        <div class="hud-title" id="hud-title"></div>
+        <div class="hud-stats">
+          <span id="hud-clock" aria-label="Tempo restante da sala"></span>
+          <span id="hud-info"></span>
+          <span id="hud-lives" role="img"></span>
+          <span>Pontos <span id="hud-score">0</span> <small id="hud-mult"></small></span>
+        </div>
+      </div>
+      <div class="stage" id="stage"></div>
+    </div>
+
+    <!-- QUESTIONÁRIOS (professor) -->
+    <div id="view-teacher" hidden>
+      <div class="t-layout">
+        <aside class="panel t-side">
+          <h2>Questionários</h2>
+          <ul id="bank-list"></ul>
+          <button class="btn btn-primary" data-act="new-bank">Novo questionário</button>
+        </aside>
+        <div id="editor"></div>
+      </div>
+    </div>
+
+    <!-- USUÁRIOS (master) -->
+    <div id="view-users" hidden></div>
+
+    <!-- PLACAR / RELATÓRIOS / PERFIL -->
+    <div id="view-board" hidden></div>
+    <div id="view-reports" hidden></div>
+    <div id="view-profile" hidden></div>
+
+    <!-- SALA AO VIVO -->
+    <div id="view-live" hidden><div class="live-wrap" id="live-root"></div></div>
+  </main>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="q-title" hidden>
+    <div class="q-card" id="modal-body"></div>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Módulos de Configuração e Núcleo -->
+  <script defer src="./js/config/constants.js"></script>
+  <script defer src="./js/config/firebase.js"></script>
+  <script defer src="./js/core/utils.js"></script>
+  <script defer src="./js/core/state.js"></script>
+  <script defer src="./js/core/auth.js"></script>
+  <script defer src="./js/data/seed.js"></script>
+  <script defer src="./js/services/stats.js"></script>
+
+  <!-- Motor de Perguntas e Jogos -->
+  <script defer src="./js/games/question-modal.js"></script>
+  <script defer src="./js/games/list/quiz.js"></script>
+  <script defer src="./js/games/list/memory.js"></script>
+  <script defer src="./js/games/list/snake.js"></script>
+  <script defer src="./js/games/list/balloons.js"></script>
+  <script defer src="./js/games/list/runner.js"></script>
+  <script defer src="./js/games/list/forca.js"></script>
+  <script defer src="./js/games/list/naval.js"></script>
+  <script defer src="./js/games/list/trilha.js"></script>
+  <script defer src="./js/games/list/torre.js"></script>
+  <script defer src="./js/games/list/roleta.js"></script>
+  <script defer src="./js/games/engine.js"></script>
+
+  <!-- Views da Aplicação -->
+  <script defer src="./js/views/login.js"></script>
+  <script defer src="./js/views/home.js"></script>
+  <script defer src="./js/views/teacher.js"></script>
+  <script defer src="./js/views/users.js"></script>
+  <script defer src="./js/views/live.js"></script>
+  <script defer src="./js/views/board.js"></script>
+  <script defer src="./js/views/reports.js"></script>
+  <script defer src="./js/views/profile.js"></script>
+
+  <!-- Inicialização e Roteamento -->
+  <script defer src="./js/app.js"></script>
+</body>
+</html>
