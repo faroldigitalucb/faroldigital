@@ -7,12 +7,12 @@
      Camada de dados conectada ao Firebase Firestore
      ===================================================================== */
   const firebaseConfig = {
-    apiKey: "AIzaSyDa4PpxnhV_FOVPD0NH19RNhOeTLhHh3rk",
-    authDomain: "nivel-quiz-e4b31.firebaseapp.com",
-    projectId: "nivel-quiz-e4b31",
-    storageBucket: "nivel-quiz-e4b31.firebasestorage.app",
-    messagingSenderId: "865709507708",
-    appId: "1:865709507708:web:7cf87e3e6f024cc2aef5f9"
+    apiKey: "AIzaSyCB6ZL_NqJOMs8ThmEq1n4b0vImjP_x_mw",
+    authDomain: "nivel-quiz-ucb.firebaseapp.com",
+    projectId: "nivel-quiz-ucb",
+    storageBucket: "nivel-quiz-ucb.firebasestorage.app",
+    messagingSenderId: "620334200884",
+    appId: "1:620334200884:web:c965d0c69bc7cb3894b261"
   };
 
   // Inicializa o Firebase
