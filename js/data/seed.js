@@ -28,25 +28,25 @@
     });
 
     return [
-      mk('Educação financeira', 'Dinheiro no dia a dia', 'medio', [
-        Q('O que é uma reserva de emergência?', ['Dinheiro separado para viagens','Dinheiro guardado para imprevistos, como um problema de saúde','Um tipo de empréstimo do banco','Um investimento de alto risco'], 1, 'Ela cobre gastos inesperados sem que você precise se endividar.'),
-        Q('Você viu um tênis caro em promoção e quer muito. O que ajuda a evitar uma compra por impulso?', ['Comprar logo, antes que acabe','Pedir dinheiro emprestado para não perder','Parcelar em muitas vezes','Esperar alguns dias e ver se ainda faz sentido'], 3, 'Dar um tempo esfria a vontade e deixa você decidir com a cabeça.'),
-        Q('Juros são…', ['Um desconto dado pelo vendedor','Um imposto sobre o salário','O valor cobrado ou pago pelo uso do dinheiro ao longo do tempo','Uma taxa para abrir conta'], 2, 'Quando você deve, paga juros. Quando investe, recebe juros.'),
-        Q('Qual destes é uma necessidade, e não um desejo?', ['Um videogame novo','Comida do dia a dia','Skin de jogo','Ingresso de show'], 1, 'Necessidades são o que precisamos para viver bem. Desejos são o que queremos a mais.'),
-        Q('Para que serve um orçamento pessoal?', ['Para planejar quanto dinheiro entra e quanto sai','Para pagar menos impostos','Para ganhar mais no fim do mês','Para conseguir empréstimo mais fácil'], 0, 'Com ele você enxerga para onde o dinheiro vai e evita sustos.'),
-        Q('Você ganha R$ 100 e gasta R$ 120. O que aconteceu?', ['Sobraram R$ 20','O banco cobre a diferença de graça','Você gastou R$ 20 que não tinha e ficou devendo','O dinheiro rendeu juros'], 2, 'Gastar mais do que se ganha leva ao endividamento.'),
-        Q('O cartão de crédito é…', ['Dinheiro extra que o banco dá de presente','Uma forma de pagar depois, mas a conta sempre chega','Uma conta de poupança','Um cartão que nunca cobra juros'], 1, 'Se você não paga a fatura inteira, os juros do cartão são muito altos.'),
-        Q('Guardar R$ 20 por semana durante 10 semanas dá quanto, sem contar juros?', ['R$ 100','R$ 200','R$ 120','R$ 20'], 1, '20 × 10 = 200. Pequenos valores constantes viram uma boa quantia.')
+      mk('Matemática Básica', 'Operações e lógica no dia a dia', 'facil', [
+        Q('Se você tem 3 maçãs e ganha mais 2, com quantas fica?', ['4 maçãs', '5 maçãs', '6 maçãs', '7 maçãs'], 1, '3 + 2 = 5. Somando as quantidades, ficamos com 5 maçãs.'),
+        Q('Quanto é o dobro de 4?', ['6', '8', '10', '12'], 1, 'O dobro de um número é ele somado com ele mesmo: 4 + 4 = 8.'),
+        Q('Qual figura geométrica tem 3 lados?', ['Quadrado', 'Círculo', 'Triângulo', 'Retângulo'], 2, 'O triângulo é a forma geométrica que possui exatamente 3 lados.'),
+        Q('Se uma caixa tem 10 lápis e tiramos 3, quantos sobram?', ['5 lápis', '6 lápis', '7 lápis', '8 lápis'], 2, '10 - 3 = 7. Restam 7 lápis na caixa.'),
+        Q('Qual número vem logo depois do 29?', ['20', '30', '40', '39'], 1, 'Na contagem, o número que sucede o 29 é o 30.'),
+        Q('Quanto é 5 vezes 2?', ['7', '10', '15', '20'], 1, '5 x 2 significa somar o 5 duas vezes: 5 + 5 = 10.'),
+        Q('Ana tem 8 balas e chupou 3. Com quantas balas ela ficou?', ['3 balas', '4 balas', '5 balas', '6 balas'], 2, '8 - 3 = 5 balas.'),
+        Q('Quantos minutos tem uma hora?', ['30 minutos', '50 minutos', '60 minutos', '100 minutos'], 2, 'Uma hora é composta por 60 minutos exatos.')
       ]),
-      mk('Emoções e convivência', 'Saúde emocional e relações', 'facil', [
-        Q('Você está com muita raiva numa discussão. Qual atitude ajuda mais?', ['Gritar para o outro entender','Respirar fundo, dar um tempo e conversar depois','Ignorar a pessoa para sempre','Postar uma indireta nas redes'], 1, 'Com a cabeça mais calma, a conversa rende e ninguém se machuca.'),
-        Q('Empatia é…', ['Concordar com tudo que os outros falam','Sentir pena de quem está mal','Tentar entender o que o outro sente, colocando-se no lugar dele','Dar conselhos sem ouvir'], 2, 'Empatia começa em ouvir de verdade.'),
-        Q('Você vê um colega sofrendo bullying. O que fazer?', ['Rir para não virar alvo','Acolher o colega e avisar um adulto de confiança','Filmar e compartilhar','Fingir que não viu'], 1, 'Apoiar a vítima e pedir ajuda a um adulto ajuda a parar a situação.'),
-        Q('Qual frase expressa um sentimento sem culpar o outro?', ['“Você sempre me irrita.”','“A culpa é toda sua.”','“Você é insuportável.”','“Eu me senti chateado quando isso aconteceu.”'], 3, 'Falar de como você se sente abre espaço para o diálogo.'),
-        Q('Pedir ajuda quando a gente não está bem é…', ['Sinal de fraqueza','Exagero','Um jeito de cuidar de si, e faz parte de ser forte','Perda de tempo'], 2, 'Todo mundo precisa de apoio em algum momento.'),
-        Q('Quantas horas de sono, em média, um adolescente precisa por noite?', ['De 4 a 5 horas','De 6 a 7 horas','De 8 a 10 horas','Mais de 12 horas'], 2, 'Dormir bem ajuda o humor, a memória e a concentração.'),
-        Q('Qual destas atitudes pode ajudar a reduzir a ansiedade?', ['Praticar respiração, se movimentar e conversar com alguém','Ficar a noite toda no celular','Guardar tudo só para si','Pular refeições'], 0, 'Corpo e conversa andam juntos no cuidado com a mente.'),
-        Q('Você discorda de um amigo. Qual é a melhor postura?', ['Vencer a discussão a qualquer custo','Parar de falar com ele','Falar mal dele para outros','Ouvir o ponto de vista dele e explicar o seu com respeito'], 3, 'Discordar faz parte. O respeito mantém a amizade.')
+      mk('Português e Linguagem', 'Palavras, sílabas e leitura', 'facil', [
+        Q('Qual destas palavras é o nome de um animal?', ['Bicicleta', 'Cachorro', 'Mochila', 'Caderno'], 1, 'Cachorro é um animal de estimação; os outros são objetos.'),
+        Q('Qual palavra começa com a letra "A"?', ['Bola', 'Escola', 'Avião', 'Dado'], 2, 'A palavra "Avião" inicia-se com a vogal A.'),
+        Q('Quantas sílabas tem a palavra "CASA"?', ['1 sílaba', '2 sílabas', '3 sílabas', '4 sílabas'], 1, 'CA-SA possui duas sílabas.'),
+        Q('Qual destas palavras rima com "GATO"?', ['Pato', 'Mesa', 'Livro', 'Janela'], 0, 'Gato e pato possuem o final com o mesmo som (-ato).'),
+        Q('Qual destas opções é uma vogal?', ['B', 'M', 'E', 'S'], 2, 'As vogais do alfabeto são A, E, I, O, U.'),
+        Q('O ponto final (.) serve para…', ['Fazer uma pergunta', 'Indicar o fim de uma frase', 'Mostrar susto ou admiração', 'Separar itens numa lista'], 1, 'Usamos o ponto final para encerrar uma frase que declarou algo.'),
+        Q('Qual é o plural de "flor"?', ['Flores', 'Florzinha', 'Florões', 'Floresas'], 0, 'O plural de flor é flores.'),
+        Q('Quem escreve livros ou histórias é chamado de…', ['Ilustrador', 'Ator', 'Escritor', 'Cantor'], 2, 'O escritor é o autor responsável por criar e escrever as histórias.')
       ])
     ];
   }
